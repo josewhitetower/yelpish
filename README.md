@@ -1,5 +1,7 @@
 # yelpish
 
+A Businnes Directoy
+
 ## Project setup
 ```
 yarn install
