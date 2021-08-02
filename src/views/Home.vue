@@ -25,10 +25,8 @@ export default defineComponent({
     {
       search(categories: "gaybars", location: "${location.value}", limit: 10) {
         business {
-          id,
           name,
           alias,
-          url,
           rating,
           distance,
           photos,

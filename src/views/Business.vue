@@ -19,7 +19,6 @@ export default defineComponent({
     const query = computed(() => `
     {
         business(id: "${route.params.alias}"){
-            id,
             name,
             alias,
             url,

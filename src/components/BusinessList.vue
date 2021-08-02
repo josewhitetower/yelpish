@@ -1,6 +1,6 @@
 <template>
     <ul>
-        <li v-for="business in businesses" :key="business.id">
+        <li v-for="business in businesses" :key="business.alias">
             <router-link :to="`/business/${business.alias}`">
                 <h2>{{business.name}}</h2>
             </router-link>
