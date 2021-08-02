@@ -1,9 +1,7 @@
 <template>
   <div class="home">
     <input type="text" v-model.trim.lazy="location">
-    <div v-for="business in businesses" :key="business.id">
-      <h2>{{business.name}}</h2>
-    </div>
+    <business-list :businesses="businesses"/>
   </div>
 </template>
 
@@ -13,17 +11,19 @@ import {
 } from 'vue';
 import { getBusinesses } from '@/api/index';
 import { Business } from '@/types/index';
+import BusinessList from '../components/BusinessList.vue';
 
 export default defineComponent({
   name: 'Home',
   components: {
+    BusinessList,
   },
   setup() {
     const location = ref('hamburg');
 
     const query = computed(() => `
     {
-      search(location: "${location.value}", limit: 5,) {
+      search(categories: "gaybars", location: "${location.value}", limit: 10) {
         business {
           id,
           name,
