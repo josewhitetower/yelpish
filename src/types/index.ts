@@ -1,7 +1,12 @@
 /* eslint-disable camelcase */
 
+interface Open {
+    start: string,
+    end: string
+}
 interface Hour {
     is_open_now: boolean
+    open: Open
 }
 
 export interface Business {
