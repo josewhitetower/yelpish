@@ -7,6 +7,7 @@ interface Hour {
 export interface Business {
     id: string,
     name: string,
+    alias: string,
     photos: Array<string>,
     distance: number,
     hours: Array<Hour>,

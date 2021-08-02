@@ -1,7 +1,11 @@
 <template>
-    <div v-for="business in businesses" :key="business.id">
-      <h2>{{business.name}}</h2>
-    </div>
+    <ul>
+        <li v-for="business in businesses" :key="business.id">
+            <router-link :to="`/business/${business.alias}`">
+                <h2>{{business.name}}</h2>
+            </router-link>
+        </li>
+    </ul>
 </template>
 
 <script lang="ts">

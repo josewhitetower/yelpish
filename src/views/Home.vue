@@ -27,6 +27,7 @@ export default defineComponent({
         business {
           id,
           name,
+          alias,
           url,
           rating,
           distance,
