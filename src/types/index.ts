@@ -13,7 +13,7 @@ interface Location {
     formatted_address: string
 }
 
-interface Coordinates {
+export interface Coordinates {
     latitude: number,
     longitude: number
 }

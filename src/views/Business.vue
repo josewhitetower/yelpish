@@ -1,7 +1,12 @@
 <template>
-    <h2>{{business?.name}}</h2>
+    <div v-if="business">
 
-    <p>{{business?.location.formatted_address}}</p>
+        <h2>{{business.name}}</h2>
+
+        <p>{{business.location.formatted_address}}</p>
+
+        <GoogleMap :coordinates="business.coordinates" />
+    </div>
 
 </template>
 <script lang="ts">
@@ -9,11 +14,13 @@ import {
   computed, defineComponent, ref, watchEffect,
 } from 'vue';
 import { useRoute } from 'vue-router';
-import { Business } from '@/types';
+import { Business } from '@/types/index';
+import GoogleMap from '@/components/GoogleMap.vue';
 import { getBusiness } from '../api/index';
 
 export default defineComponent({
   name: 'Business',
+  components: { GoogleMap },
 
   setup() {
     const route = useRoute();
