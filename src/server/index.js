@@ -24,8 +24,8 @@ app.post('/', (req, res) => {
   }).then(({ data }) => {
     res.send(data);
   }).catch((e) => {
-    console.log({ e: e.message });
-    res.sendStatus(400);
+    console.error({ e: e.message });
+    res.sendStatus(e.response.status).send(e.response.statusTex);
   });
 });
 

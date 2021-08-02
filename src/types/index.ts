@@ -9,6 +9,15 @@ interface Hour {
     open: Open
 }
 
+interface Location {
+    formatted_address: string
+}
+
+interface Coordinates {
+    latitude: number,
+    longitude: number
+}
+
 export interface Business {
     name: string,
     alias: string,
@@ -17,4 +26,6 @@ export interface Business {
     hours: Array<Hour>,
     rating: number,
     url: string
+    location: Location
+    coordinates: Coordinates
 }

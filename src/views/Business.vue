@@ -1,6 +1,8 @@
 <template>
     <h2>{{business?.name}}</h2>
 
+    <p>{{business?.location.formatted_address}}</p>
+
 </template>
 <script lang="ts">
 import {
@@ -26,9 +28,11 @@ export default defineComponent({
             photos,
             hours {
                 is_open_now
-                open { start, end}
+                open { start, end }
             },
-            reviews {rating, user {name}, time_created}
+            reviews { rating, user { name }, time_created },
+            coordinates { latitude, longitude },
+            location { formatted_address }
         }
     }`);
 
