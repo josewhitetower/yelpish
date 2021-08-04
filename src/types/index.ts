@@ -29,3 +29,9 @@ export interface Business {
     location: Location
     coordinates: Coordinates
 }
+
+export interface Category {
+    title: string,
+    icon: string,
+    color: string
+}
