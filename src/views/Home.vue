@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+      <h1>Yelpish, find your place...</h1>
     <input type="text" v-model.trim.lazy="location">
     <business-list :businesses="businesses"/>
   </div>
