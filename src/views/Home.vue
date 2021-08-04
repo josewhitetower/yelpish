@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="px-4 lg:px-0">
     <h1 class="font-display text-6xl">Yelpish, find your place...</h1>
     <Search :location="location" @search="onSearch"/>
     <Categories @select="onSelect"/>
