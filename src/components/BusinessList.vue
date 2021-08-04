@@ -6,14 +6,17 @@
           <li
             v-for="(business) in businesses"
             :key="business.alias"
-            class="list-none flex-shrink-0 w-full md:w-1/2 lg:w-1/4"
+            class="list-none flex-shrink-0 w-full md:w-1/2 lg:w-1/4 text-left"
             >
               <router-link :to="`/business/${business.alias}`">
                 <div class="">
                   <img
                     :src="business.photos[0]"
                     class="h-60 w-full object-cover rounded-lg"/>
-
+                  <h3
+                    class="text-lg font-bold mt-2 inline-block no-underline">
+                    {{business.name}}
+                  </h3>
                 </div>
               </router-link>
           </li>
