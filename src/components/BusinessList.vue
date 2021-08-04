@@ -1,11 +1,20 @@
 <template>
-    <ul>
-        <li v-for="business in businesses" :key="business.alias">
+    <u class="flex overflow-x-auto business-list justify-between">
+        <li
+          v-for="business in businesses"
+          :key="business.alias"
+          class="list-none flex-shrink-0 w-96"
+          >
             <router-link :to="`/business/${business.alias}`">
-                <h2>{{business.name}}</h2>
+              <div class="mr-6">
+                <img
+                  :src="business.photos[0]"
+                  class="h-60 w-full object-cover rounded-lg"/>
+
+              </div>
             </router-link>
         </li>
-    </ul>
+    </u>
 </template>
 
 <script lang="ts">
@@ -21,3 +30,8 @@ export default defineComponent({
   },
 });
 </script>
+<style scoped>
+ .business-list::-webkit-scrollbar {
+    display: none;
+}
+</style>

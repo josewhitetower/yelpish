@@ -2,6 +2,7 @@
   <div class="mt-8 container mx-auto">
     <router-view/>
   </div>
+  <footer class="h-20"></footer>
 </template>
 
 <style>

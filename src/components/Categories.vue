@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-around mx-auto items-center lg:w-2/5 w-10/12 mt-20">
+    <div class="flex justify-around mx-auto items-center lg:w-2/5 w-10/12 mt-20 mb-40">
         <span
             v-for="category in categories"
             :key="category.title"
