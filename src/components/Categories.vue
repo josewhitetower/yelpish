@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-center align-middle mt-20">
+    <div class="flex justify-around mx-auto items-center lg:w-2/5 w-10/12 mt-20">
         <span
             v-for="category in categories"
             :key="category.title"
@@ -8,10 +8,11 @@
             `${category.title === selectedCategory
                 ? `bg-${category.color} text-white`
                 :`text-${category.color}`}`,
-            `material-icons mr-16 border-2 rounded
-            border-${category.color}  py-4  px-6 text-4xl
+            `material-icons border-2 rounded-2xl
+            border-${category.color}  py-4 px-6 text-4xl
             cursor-pointer opacity-95
-            hover:text-white hover:bg-${category.color}`]"
+            hover:text-white hover:bg-${category.color} transition ease-in duration-150`
+            ]"
             @click="onClick(category.title)"
             >
             {{category.icon}}

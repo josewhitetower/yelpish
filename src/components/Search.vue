@@ -3,7 +3,7 @@
         <input
             type="text"
             class="bg-blue-50 lg:w-2/5 w-10/12
-                py-2 px-4 rounded-2xl focus:outline-none focus:ring-1"
+                p-4 rounded-2xl focus:outline-none focus:ring-1"
             v-model.trim.lazy="searchTerm"
         >
         <span class="material-icons -ml-10 transform translate-y-1.5">search</span>
