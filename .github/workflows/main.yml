@@ -26,10 +26,10 @@ jobs:
     # # The runners that the job will run on
    runs-on: ${{ matrix.os }}
    steps:
-      # - name: Setup Node.js environment
-      #   uses: actions/setup-node@v1.4.3
-      #   with:
-      #     node-version: ${{ matrix.node }}
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v1.4.3
+        with:
+          node-version: ${{ matrix.node }}
 
       - name: Checkout master branch
         uses: actions/checkout@v2
