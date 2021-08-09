@@ -17,6 +17,12 @@ export interface Coordinates {
     latitude: number,
     longitude: number
 }
+export interface Category {
+    title: string,
+    alias: string,
+    icon: string,
+    color: string
+}
 
 export interface Business {
     name: string,
@@ -28,10 +34,5 @@ export interface Business {
     url: string
     location: Location
     coordinates: Coordinates
-}
-
-export interface Category {
-    title: string,
-    icon: string,
-    color: string
+    categories: Category[]
 }

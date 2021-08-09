@@ -3,7 +3,7 @@
     <h1 class="font-display text-6xl">Yelpish, find your place...</h1>
     <Search :location="location" @search="onSearch"/>
     <Categories @select="onSelect"/>
-    <BusinessList :businesses="businesses"/>
+    <BusinessList :businesses="businesses" :category="category"/>
   </div>
 </template>
 
@@ -40,6 +40,7 @@ export default defineComponent({
           hours {
             is_open_now
           }
+          categories { title, alias }
         }
       }
     }`);
@@ -53,7 +54,7 @@ export default defineComponent({
     });
 
     return {
-      businesses, location, onSearch, onSelect,
+      businesses, location, onSearch, onSelect, category,
     };
   },
 });

@@ -10,8 +10,8 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { Coordinates } from '@/types';
 import { GoogleMap, Marker } from 'vue3-google-map';
+import { Coordinates } from '@/types';
 
 export default defineComponent({
   props: {
