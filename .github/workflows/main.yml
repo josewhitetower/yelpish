@@ -44,7 +44,11 @@ jobs:
 
       - name: Install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
-        run: npm install && cd server && npm install
+        run: npm ci
+
+      - name: Install server dependencies
+        working_directory: ./src/server
+        run: npm ci
 
       - name: Run ESLint
         run: npm run lint
