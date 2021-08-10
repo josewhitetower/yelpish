@@ -1,9 +1,9 @@
 <template>
-  <div class="home">
-    <input type="text" v-model.trim.lazy="location">
-    <div v-for="business in businesses" :key="business.id">
-      <h2>{{business.name}}</h2>
-    </div>
+  <div class="px-4 lg:px-0">
+    <h1 class="font-display text-6xl">Yelpish, find your place...</h1>
+    <Search :location="location" @search="onSearch"/>
+    <Categories @select="onSelect"/>
+    <BusinessList :businesses="businesses" :category="category"/>
   </div>
 </template>
 
@@ -13,38 +13,49 @@ import {
 } from 'vue';
 import { Business } from '@/types/index';
 import { getBusinesses } from '@/api/index';
+import BusinessList from '../components/BusinessList.vue';
+import Search from '../components/Search.vue';
+import Categories from '../components/Categories.vue';
 
 export default defineComponent({
   name: 'Home',
   components: {
+    BusinessList,
+    Search,
+    Categories,
   },
   setup() {
     const location = ref('hamburg');
+    const category = ref('restaurants');
 
     const query = computed(() => `
     {
-      search(location: "${location.value}", limit: 5,) {
+      search(categories: "${category.value}", location: "${location.value}", limit: 10) {
         business {
-          id,
           name,
-          url,
+          alias,
           rating,
           distance,
           photos,
           hours {
             is_open_now
           }
+          categories { title, alias }
         }
       }
     }`);
 
     const businesses = ref<Array<Business>>([]);
+    const onSearch = (term: string): void => { location.value = term; };
+    const onSelect = (selectedCategory:string) => { category.value = selectedCategory; };
 
     watchEffect(async () => {
       businesses.value = await getBusinesses(query.value);
     });
 
-    return { businesses, location };
+    return {
+      businesses, location, onSearch, onSelect, category,
+    };
   },
 });
 </script>

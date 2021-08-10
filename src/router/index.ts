@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import Business from '../views/Business.vue';
 import Home from '../views/Home.vue';
 
 const routes: Array<RouteRecordRaw> = [
@@ -6,6 +7,12 @@ const routes: Array<RouteRecordRaw> = [
     path: '/',
     name: 'Home',
     component: Home,
+  },
+  {
+    path: '/business/:alias',
+    name: 'Business',
+    component: Business,
+    props: true,
   },
   // {
   //   path: '/about',
