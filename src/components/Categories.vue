@@ -1,55 +1,64 @@
 <template>
-    <div class="flex justify-around mx-auto items-center lg:w-2/5 w-10/12 mt-20 mb-40">
-        <span
-            v-for="category in categories"
-            :key="category.title"
-            class=""
-            :class="[
-            `${category.title === selectedCategory
-                ? `bg-${category.color} text-white`
-                :`text-${category.color}`}`,
-            `material-icons border-2 rounded-2xl
-            border-${category.color}  py-4 px-6 text-4xl
-            cursor-pointer opacity-95
-            hover:text-white hover:bg-${category.color} transition ease-in duration-150`
-            ]"
-            @click="onClick(category.title)"
-            >
-            {{category.icon}}
-        </span>
-    </div>
+    <ul class="flex justify-around mx-auto items-center lg:w-2/5 w-10/12 mt-20 mb-40">
+      <li v-for="category in categories" :key="category.alias">
+        <Category
+          :category="category"
+          :is-selected="category.alias === selectedCategory"
+          @select="onClick"/>
+    </li>
+    </ul>
 </template>
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { Category } from '@/types';
+import { ICategory } from '@/types';
+import Category from '@/components/Category.vue';
 
 export default defineComponent({
+
   setup(_, { emit }) {
-    const categories = ref<Array<Category>>([
+    const categories = ref<Array<ICategory>>([
       {
-        title: 'restaurants',
+        alias: 'restaurants',
         icon: 'restaurant',
         color: 'indigo-500',
+        textColor: 'text-indigo-500',
+        bgColor: 'bg-indigo-500',
+        borderColor: 'border-indigo-500',
+        hoverColor: 'hover:bg-indigo-500',
       },
       {
-        title: 'bars',
+        alias: 'bars',
         icon: 'local_bar',
         color: 'green-400',
+        textColor: 'text-green-400',
+        bgColor: 'bg-green-400',
+        borderColor: 'border-green-500',
+        hoverColor: 'hover:bg-green-500',
       },
       {
-        title: 'cafes',
+        alias: 'cafes',
         icon: 'local_cafe',
         color: 'yellow-500',
+        textColor: 'text-yellow-500',
+        bgColor: 'bg-yellow-500',
+        borderColor: 'border-yellow-500',
+        hoverColor: 'hover:bg-yellow-500',
       },
     ]);
 
-    const selectedCategory = ref(categories.value[0].title);
-    const onClick = (title: string) => {
-      selectedCategory.value = title;
-      emit('select', title);
+    const selectedCategory = ref(categories.value[0].alias);
+
+    const onClick = (alias: string) => {
+      selectedCategory.value = alias;
+      emit('select', alias);
     };
 
-    return { categories, onClick, selectedCategory };
+    return {
+      categories, onClick, selectedCategory,
+    };
+  },
+  components: {
+    Category,
   },
 });
 </script>
