@@ -20,29 +20,17 @@ export default defineComponent({
       {
         alias: 'restaurants',
         icon: 'restaurant',
-        color: 'indigo-500',
-        textColor: 'text-indigo-500',
-        bgColor: 'bg-indigo-500',
-        borderColor: 'border-indigo-500',
-        hoverColor: 'hover:bg-indigo-500',
+        color: '#6366F1 ',
       },
       {
         alias: 'bars',
         icon: 'local_bar',
-        color: 'green-400',
-        textColor: 'text-green-400',
-        bgColor: 'bg-green-400',
-        borderColor: 'border-green-500',
-        hoverColor: 'hover:bg-green-500',
+        color: '#34D399',
       },
       {
         alias: 'cafes',
         icon: 'local_cafe',
-        color: 'yellow-500',
-        textColor: 'text-yellow-500',
-        bgColor: 'bg-yellow-500',
-        borderColor: 'border-yellow-500',
-        hoverColor: 'hover:bg-yellow-500',
+        color: '#F59E0B',
       },
     ]);
 

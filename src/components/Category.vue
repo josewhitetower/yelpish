@@ -1,19 +1,15 @@
 <template>
     <span
-        :class="[isSelected ? `${category.bgColor} text-white`
-                :`${category.textColor}`,
-        `material-icons border-2 rounded-2xl
-        ${category.borderColor}  py-4 px-6 text-4xl
-        cursor-pointer opacity-95
-        hover:text-white ${category.hoverColor} transition ease-in duration-150`
-        ]"
+        class="material-icons border-2 rounded-2xl py-4 px-6 text-4xl
+          cursor-pointer opacity-95 transition ease-in duration-150 category"
+        :class="{'isSelected' : isSelected}"
         @click="$emit('select',category.alias)"
         >
         {{category.icon}}
     </span>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import { ICategory } from '@/types';
 
 export default defineComponent({
@@ -27,5 +23,22 @@ export default defineComponent({
       required: true,
     },
   },
+  setup(props) {
+    const color = ref(props.category.color);
+    return {
+      color,
+    };
+  },
 });
 </script>
+<style scoped>
+  .category {
+    border-color: v-bind(color);
+  }
+  .category.isSelected,
+  .category:hover {
+    background-color: v-bind(color);
+    color: white
+}
+
+</style>

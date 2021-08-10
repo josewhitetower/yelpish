@@ -21,10 +21,6 @@ export interface ICategory {
     alias: string,
     icon: string,
     color: string,
-    textColor: string,
-    bgColor: string,
-    borderColor: string,
-    hoverColor: string
 }
 
 export interface IBusiness {
