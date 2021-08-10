@@ -2,7 +2,7 @@ import axios from 'axios';
 import { IBusiness } from '../types/index';
 
 const makeRequest = (query: string | string[]) => axios({
-  url: 'http://localhost:3000',
+  url: 'https://jt-yelpish-server.herokuapp.com/',
   method: 'post',
   headers: {
     'Content-Type': 'application/json',
