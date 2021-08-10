@@ -12,7 +12,7 @@ import {
   computed, defineComponent, ref, watchEffect,
 } from 'vue';
 import { getBusinesses } from '@/api/index';
-import { Business } from '@/types/index';
+import { IBusiness } from '@/types/index';
 import BusinessList from '../components/BusinessList.vue';
 import Search from '../components/Search.vue';
 import Categories from '../components/Categories.vue';
@@ -45,7 +45,7 @@ export default defineComponent({
       }
     }`);
 
-    const businesses = ref<Array<Business>>([]);
+    const businesses = ref<Array<IBusiness>>([]);
     const onSearch = (term: string): void => { location.value = term; };
     const onSelect = (selectedCategory:string) => { category.value = selectedCategory; };
 

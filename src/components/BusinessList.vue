@@ -36,13 +36,13 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
-import { Business } from '@/types';
+import { IBusiness } from '@/types';
 
 export default defineComponent({
   props: {
     businesses: {
       required: true,
-      type: Array as PropType<Business[]>,
+      type: Array as PropType<IBusiness[]>,
     },
     category: {
       required: false,

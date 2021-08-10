@@ -14,7 +14,7 @@ import {
   computed, defineComponent, ref, watchEffect,
 } from 'vue';
 import { useRoute } from 'vue-router';
-import { Business } from '@/types/index';
+import { IBusiness } from '@/types/index';
 import GoogleMap from '@/components/GoogleMap.vue';
 import { getBusiness } from '../api/index';
 
@@ -24,7 +24,7 @@ export default defineComponent({
 
   setup() {
     const route = useRoute();
-    const business = ref<Business | null>(null);
+    const business = ref<IBusiness | null>(null);
     const query = computed(() => `
     {
         business(id: "${route.params.alias}"){

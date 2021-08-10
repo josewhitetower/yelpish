@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Business } from '../types/index';
+import { IBusiness } from '../types/index';
 
 const makeRequest = (query: string | string[]) => axios({
   url: 'http://localhost:3000',
@@ -10,13 +10,13 @@ const makeRequest = (query: string | string[]) => axios({
   data: { query },
 });
 
-export const getBusinesses = async (query: string): Promise<Business[]> => {
+export const getBusinesses = async (query: string): Promise<IBusiness[]> => {
   const response = await makeRequest(query);
 
   return response.data.data.search.business;
 };
 
-export const getBusiness = async (query: string | string[]): Promise<Business> => {
+export const getBusiness = async (query: string | string[]): Promise<IBusiness> => {
   const response = await makeRequest(query);
 
   return response.data.data.business;

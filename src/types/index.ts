@@ -1,38 +1,41 @@
 /* eslint-disable camelcase */
 
-interface Open {
+interface IOpen {
     start: string,
     end: string
 }
-interface Hour {
+interface IHour {
     is_open_now: boolean
-    open: Open
+    open: IOpen
 }
 
-interface Location {
+interface ILocation {
     formatted_address: string
 }
 
-export interface Coordinates {
+export interface ICoordinates {
     latitude: number,
     longitude: number
 }
-export interface Category {
-    title: string,
+export interface ICategory {
     alias: string,
     icon: string,
-    color: string
+    color: string,
+    textColor: string,
+    bgColor: string,
+    borderColor: string,
+    hoverColor: string
 }
 
-export interface Business {
+export interface IBusiness {
     name: string,
     alias: string,
     photos: Array<string>,
     distance: number,
-    hours: Array<Hour>,
+    hours: Array<IHour>,
     rating: number,
     url: string
-    location: Location
-    coordinates: Coordinates
-    categories: Category[]
+    location: ILocation
+    coordinates: ICoordinates
+    categories: ICategory[]
 }

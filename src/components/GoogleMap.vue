@@ -11,13 +11,13 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { GoogleMap, Marker } from 'vue3-google-map';
-import { Coordinates } from '@/types';
+import { ICoordinates } from '@/types';
 
 export default defineComponent({
   props: {
     coordinates: {
       required: true,
-      type: Object as () => Coordinates,
+      type: Object as () => ICoordinates,
     },
   },
   components: { GoogleMap, Marker },
