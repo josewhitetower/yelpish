@@ -11,8 +11,8 @@
 import {
   computed, defineComponent, ref, watchEffect,
 } from 'vue';
-import { Business } from '@/types/index';
 import { getBusinesses } from '@/api/index';
+import { Business } from '@/types/index';
 
 export default defineComponent({
   name: 'Home',
