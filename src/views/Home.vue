@@ -1,10 +1,10 @@
 <template>
-  <div class="px-4 lg:px-0">
+  <div>
     <h1 class="font-display text-6xl">Yelpish, find your place...</h1>
     <Search :location="location" @search="onSearch"/>
     <Categories @select="onSelect"/>
     <Loader v-if="isLoading"/>
-    <BusinessList v-else :businesses="businesses" :category="category"/>
+    <BusinessList v-else-if="businesses.length" :businesses="businesses" :category="category"/>
   </div>
 </template>
 
