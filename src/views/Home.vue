@@ -3,7 +3,8 @@
     <h1 class="font-display text-6xl">Yelpish, find your place...</h1>
     <Search :location="location" @search="onSearch"/>
     <Categories @select="onSelect"/>
-    <BusinessList :businesses="businesses" :category="category"/>
+    <Loader v-if="isLoading"/>
+    <BusinessList v-else :businesses="businesses" :category="category"/>
   </div>
 </template>
 
@@ -14,6 +15,7 @@ import {
 import { getBusinesses } from '@/api/index';
 import { IBusiness, ICoordinates } from '@/types/index';
 import useLocation from '@/composables/useLocation';
+import Loader from '@/components/Loader.vue';
 import BusinessList from '../components/BusinessList.vue';
 import Search from '../components/Search.vue';
 import Categories from '../components/Categories.vue';
@@ -24,9 +26,11 @@ export default defineComponent({
     BusinessList,
     Search,
     Categories,
+    Loader,
   },
   setup() {
     const location = ref('');
+    const isLoading = ref(false);
     const category = ref('restaurants');
     const coordinates = ref <ICoordinates|null>(null);
 
@@ -56,7 +60,9 @@ export default defineComponent({
     const onSelect = (selectedCategory:string) => { category.value = selectedCategory; };
 
     watch(query, async () => {
+      isLoading.value = true;
       businesses.value = await getBusinesses(query.value);
+      isLoading.value = false;
     });
 
     watchEffect(async () => {
@@ -72,7 +78,7 @@ export default defineComponent({
     });
 
     return {
-      businesses, location, onSearch, onSelect, category,
+      businesses, location, onSearch, onSelect, category, isLoading,
     };
   },
 });
