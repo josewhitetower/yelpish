@@ -1,7 +1,7 @@
 <template>
     <div class="relative">
-      <div class="absolute top-0 left-0 bottom-0 bg-gradient-to-r from-white w-4"></div>
-      <div class="absolute top-0 right-0 bottom-0 bg-gradient-to-l from-white w-4"></div>
+      <div class="absolute top-0 left-0 bottom-0 bg-gradient-to-r from-white w-2"></div>
+      <div class="absolute top-0 right-0 bottom-0 bg-gradient-to-l from-white w-2"></div>
       <h2 class="text-left text-5xl px-2 mb-4 capitalize">{{category}}</h2>
       <u class="flex overflow-x-auto business-list justify-between gap-4 px-2">
           <li
