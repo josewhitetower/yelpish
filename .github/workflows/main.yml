@@ -48,3 +48,6 @@ jobs:
 
       - name: Run ESLint
         run: npm run lint
+
+      - name: Run Unit tests
+        run: npm run test:unit
