@@ -9,10 +9,11 @@
 
 <script lang="ts">
 import {
-  computed, defineComponent, ref, watchEffect,
+  computed, defineComponent, ref, watch, watchEffect,
 } from 'vue';
 import { getBusinesses } from '@/api/index';
-import { IBusiness } from '@/types/index';
+import { IBusiness, ICoordinates } from '@/types/index';
+import useLocation from '@/composables/useLocation';
 import BusinessList from '../components/BusinessList.vue';
 import Search from '../components/Search.vue';
 import Categories from '../components/Categories.vue';
@@ -25,12 +26,17 @@ export default defineComponent({
     Categories,
   },
   setup() {
-    const location = ref('hamburg');
+    const location = ref('');
     const category = ref('restaurants');
+    const coordinates = ref <ICoordinates|null>(null);
+
+    const queryLocation = computed(() => (coordinates.value?.latitude && coordinates.value.latitude
+      ? `latitude: ${coordinates.value.latitude}, longitude: ${coordinates.value.longitude}`
+      : `location: "${location.value}"`));
 
     const query = computed(() => `
     {
-      search(categories: "${category.value}", location: "${location.value}", limit: 10) {
+      search(categories: "${category.value}", ${queryLocation.value}, limit: 10) {
         business {
           name,
           alias,
@@ -49,8 +55,20 @@ export default defineComponent({
     const onSearch = (term: string): void => { location.value = term; };
     const onSelect = (selectedCategory:string) => { category.value = selectedCategory; };
 
-    watchEffect(async () => {
+    watch(query, async () => {
       businesses.value = await getBusinesses(query.value);
+    });
+
+    watchEffect(async () => {
+      if (!location.value) {
+        try {
+          const geoLocation = await useLocation();
+          coordinates.value = geoLocation.coords;
+        } catch (error) {
+          console.error('Geolocation is not supported by your browser');
+          coordinates.value = null;
+        }
+      } else coordinates.value = null;
     });
 
     return {
