@@ -13,7 +13,9 @@
                   <router-link :to="`/business/${business.alias}`">
                       <img
                         :src="business.photos[0]"
-                        class="h-60 w-full object-cover rounded-lg"/>
+                        class="h-60 w-full object-cover rounded-lg"
+                        loading="lazy"
+                        >
                       <h3
                         class="text-lg font-bold mt-2 inline-block no-underline">
                         {{business.name}}
@@ -25,7 +27,7 @@
                       v-for="(category, index) in business.categories"
                       :key="category.alias">
                         <span v-if="index != 0">, </span>
-                        <span>{{ category.title }}</span>
+                        <span class="capitalize">{{ category.alias }}</span>
                     </span>
                   </p>
                 </div>
