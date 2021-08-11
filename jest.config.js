@@ -8,7 +8,7 @@ module.exports = {
   collectCoverageFrom: ['**/*.vue', '!**/node_modules/**'],
   coverageThreshold: {
     global: {
-      statements: 4,
+      statements: 10,
     },
   },
 };
