@@ -7,6 +7,7 @@ const category: ICategory = {
   alias: 'restaurants',
   icon: 'restaurant',
   color: '#6366F1 ',
+  title: 'Restaurants',
 };
 
 describe('Category.vue', () => {

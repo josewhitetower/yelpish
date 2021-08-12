@@ -21,16 +21,19 @@ export default defineComponent({
         alias: 'restaurants',
         icon: 'restaurant',
         color: '#6366F1 ',
+        title: 'Restaurant',
       },
       {
         alias: 'bars',
         icon: 'local_bar',
         color: '#34D399',
+        title: 'Bars',
       },
       {
         alias: 'cafes',
         icon: 'local_cafe',
         color: '#F59E0B',
+        title: 'Cafes',
       },
     ]);
 
