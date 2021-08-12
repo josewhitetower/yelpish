@@ -2,7 +2,7 @@
 
 A Businnes Directoy
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/bbbf5a77-aaa6-493b-9c56-ac12b94a90c3/deploy-status)](https://app.netlify.com/sites/jt-yelpish/deploys)
+[![CI](https://github.com/josewhitetower/yelpish/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/josewhitetower/yelpish/actions/workflows/main.yml)
 
 ## Project setup
 ```
