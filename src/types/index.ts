@@ -21,6 +21,7 @@ export interface ICategory {
     alias: string,
     icon: string,
     color: string,
+    title: string
 }
 
 export interface IBusiness {
