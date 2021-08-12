@@ -14,7 +14,7 @@ import {
 } from 'vue';
 import { getBusinesses } from '@/api/index';
 import { IBusiness, ICoordinates } from '@/types/index';
-import useLocation from '@/composables/useLocation';
+import getLocation from '@/composables/getLocation';
 import Loader from '@/components/Loader.vue';
 import BusinessList from '../components/BusinessList.vue';
 import Search from '../components/Search.vue';
@@ -68,7 +68,7 @@ export default defineComponent({
     watchEffect(async () => {
       if (!location.value) {
         try {
-          const geoLocation = await useLocation();
+          const geoLocation = await getLocation();
           coordinates.value = geoLocation.coords;
         } catch (error) {
           console.error('Geolocation is not supported by your browser');
