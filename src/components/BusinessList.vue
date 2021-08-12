@@ -27,7 +27,7 @@
                       v-for="(category, index) in business.categories"
                       :key="category.alias">
                         <span v-if="index != 0">, </span>
-                        <span class="capitalize">{{ category.alias }}</span>
+                        <span>{{ category.title }}</span>
                     </span>
                   </p>
                 </div>
