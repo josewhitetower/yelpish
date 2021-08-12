@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
-import Business from '../views/Business.vue';
 import Home from '../views/Home.vue';
 
 const routes: Array<RouteRecordRaw> = [
@@ -11,7 +10,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/business/:alias',
     name: 'Business',
-    component: Business,
+    component: () => import(/* webpackChunkName: "business" */'../views/Business.vue'),
     props: true,
   },
   // {
